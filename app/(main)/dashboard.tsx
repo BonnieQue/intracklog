@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { View, Text, ScrollView, Modal, Pressable, TouchableOpacity, StyleSheet, ActivityIndicator, Platform, useWindowDimensions, Linking, Keyboard, TouchableWithoutFeedback, Share } from 'react-native';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -37,6 +37,52 @@ export default function DashboardScreen() {
   const isLandscape = isMobile ? screenWidth > 500 : false;
   const toggleTheme = useThemeStore((s) => s.toggle);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [showTripVehiclePicker, setShowTripVehiclePicker] = useState(false);
+
+  // Mobile-only guided scroll: when the home view loads, slowly scroll down
+  // to reveal "Start a trip"; when the user opens the vehicle picker, slowly
+  // scroll further to bring "Select a vehicle" into view.
+  const homeScrollRef = useRef<ScrollView>(null);
+  const currentScrollYRef = useRef(0);
+  const contentHeightRef = useRef(0);
+  const viewHeightRef = useRef(0);
+  const smoothScroll = (toY: number, duration = 1200) => {
+    if (Platform.OS === 'web') return;
+    const ref = homeScrollRef.current;
+    if (!ref) return;
+    const start = performance.now();
+    const startY = currentScrollYRef.current;
+    const step = (now: number) => {
+      const elapsed = now - start;
+      const p = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      const y = startY + (toY - startY) * eased;
+      ref.scrollTo({ y, animated: false });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const scrollToBottom = (duration = 1200) => {
+    const maxY = Math.max(0, contentHeightRef.current - viewHeightRef.current);
+    if (maxY > 0) smoothScroll(maxY, duration);
+  };
+
+  // On mount of the home view (mobile only), slowly scroll down to bring
+  // the "Start a trip" button into view. Re-fires whenever the user returns
+  // to the home view from a nav section.
+  useEffect(() => {
+    if (Platform.OS === 'web' || activeSection !== null) return;
+    const id = setTimeout(() => scrollToBottom(1400), 700);
+    return () => clearTimeout(id);
+  }, [activeSection]);
+
+  // When the user taps "Start a trip" and the vehicle picker opens, slowly
+  // scroll a bit further so the "Select a vehicle" list is centred.
+  useEffect(() => {
+    if (Platform.OS === 'web' || !showTripVehiclePicker) return;
+    const id = setTimeout(() => scrollToBottom(900), 250);
+    return () => clearTimeout(id);
+  }, [showTripVehiclePicker]);
   const [showModal, setShowModal] = useState(false);
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [newPlate, setNewPlate] = useState('');
@@ -65,7 +111,6 @@ export default function DashboardScreen() {
   const [teamInnerTab, setTeamInnerTab] = useState<'members' | 'invitations' | 'reimbursements'>('members');
   const [teamReports, setTeamReports] = useState<ReimbursementResponse[]>([]);
   const [showTeamDropdown, setShowTeamDropdown] = useState(false);
-  const [showTripVehiclePicker, setShowTripVehiclePicker] = useState(false);
   const [slidePanel, setSlidePanel] = useState<'none' | 'editAccount' | 'settings'>('none');
   const [editAccountTab, setEditAccountTab] = useState<'subscription' | 'details'>('subscription');
   const [editName, setEditName] = useState(user?.full_name || '');
@@ -426,7 +471,15 @@ export default function DashboardScreen() {
           </View>
         </View>
       </View>
-      <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        ref={homeScrollRef}
+        contentContainerStyle={styles.scroll}
+        showsVerticalScrollIndicator={false}
+        onScroll={(e) => { currentScrollYRef.current = e.nativeEvent.contentOffset.y; }}
+        scrollEventThrottle={32}
+        onLayout={(e) => { viewHeightRef.current = e.nativeEvent.layout.height; }}
+        onContentSizeChange={(_w, h) => { contentHeightRef.current = h; }}
+      >
         {/* Quick nav grid */}
         <View style={styles.navGrid}>
           {[
