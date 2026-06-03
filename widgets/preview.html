@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>InTrackLog · Widget Library</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: #0a0a0c; color: #f0efe8;
+    padding: 40px;
+  }
+  .header { text-align: center; margin-bottom: 50px; }
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px; letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  h1 .accent { color: #2D9F6F; font-style: italic; }
+  .lede { color: #8a8a96; font-size: 15px; max-width: 580px; margin: 0 auto; line-height: 1.6; }
+
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 26px; letter-spacing: -0.5px;
+    margin: 50px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .section-title .accent { color: #2D9F6F; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    max-width: 1280px; margin: 0 auto;
+  }
+
+  .card {
+    background: #131318;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 24px 18px 18px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .card:hover {
+    border-color: rgba(45,159,111,0.4);
+    transform: translateY(-2px);
+  }
+
+  .preview {
+    background: #1a1a22;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 16px;
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .preview img { max-width: 90px; max-height: 90px; }
+
+  .name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .filename {
+    font-family: monospace;
+    font-size: 11px;
+    color: #6a6a76;
+    margin-bottom: 12px;
+    word-break: break-all;
+  }
+
+  .download {
+    display: inline-block;
+    background: #2D9F6F; color: white;
+    padding: 7px 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .download:hover { background: #238a5d; }
+
+  .colors-row {
+    display: flex; gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 20px; max-width: 1280px;
+    margin-left: auto; margin-right: auto;
+  }
+  .swatch {
+    flex: 1;
+    min-width: 180px;
+    background: #131318;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .swatch-bar { height: 90px; }
+  .swatch-info { padding: 14px 16px; }
+  .swatch-name { font-weight: 700; font-size: 14px; }
+  .swatch-hex { font-family: monospace; font-size: 12px; color: #8a8a96; margin-top: 4px; }
+
+  .full-card {
+    grid-column: span 2;
+  }
+  .full-card .preview { height: 140px; }
+  .full-card .preview img { max-width: 100%; max-height: 110px; }
+
+  .note {
+    background: rgba(45,159,111,0.08);
+    border: 1px solid rgba(45,159,111,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    max-width: 1280px;
+    margin: 0 auto 30px;
+    color: #c0bfb8;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>InTrackLog · <span class="accent">Widget Library</span></h1>
+  <p class="lede">All the icons, logos, and brand assets used across the app — exported as standalone SVGs you can drop into presentations, marketing material, or anywhere else.</p>
+</div>
+
+<div class="note">
+  <strong>💡 How to use:</strong> Right-click any download button → "Save link as..." to save the SVG to your computer.
+  SVGs scale to any size without losing quality and can be opened in PowerPoint, Word, Figma, Photoshop, or any browser.
+  To convert to PNG: open the SVG in a browser, take a screenshot, or use a free converter like <a href="https://cloudconvert.com/svg-to-png" style="color: #2D9F6F;">cloudconvert.com</a>.
+</div>
+
+<h2 class="section-title">Brand <span class="accent">marks</span></h2>
+<div class="grid">
+  <div class="card full-card">
+    <div class="preview"><img src="logo-full.svg" alt="Full logo"></div>
+    <div class="name">Logo · Full Wordmark</div>
+    <div class="filename">logo-full.svg</div>
+    <a class="download" href="logo-full.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="logo-icon.svg" alt="Logo icon"></div>
+    <div class="name">Logo · Icon only</div>
+    <div class="filename">logo-icon.svg</div>
+    <a class="download" href="logo-icon.svg" download>↓ Download</a>
+  </div>
+</div>
+
+<h2 class="section-title">Dashboard <span class="accent">navigation icons</span></h2>
+<div class="grid">
+  <div class="card">
+    <div class="preview"><img src="vehicles.svg" alt="Vehicles"></div>
+    <div class="name">Vehicles</div>
+    <div class="filename">vehicles.svg</div>
+    <a class="download" href="vehicles.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="trips.svg" alt="Trips"></div>
+    <div class="name">Trips</div>
+    <div class="filename">trips.svg</div>
+    <a class="download" href="trips.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="locations.svg" alt="Locations"></div>
+    <div class="name">Locations</div>
+    <div class="filename">locations.svg</div>
+    <a class="download" href="locations.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="reports.svg" alt="Reports"></div>
+    <div class="name">Reports</div>
+    <div class="filename">reports.svg</div>
+    <a class="download" href="reports.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="teams.svg" alt="Teams"></div>
+    <div class="name">Teams</div>
+    <div class="filename">teams.svg</div>
+    <a class="download" href="teams.svg" download>↓ Download</a>
+  </div>
+</div>
+
+<h2 class="section-title">Settings <span class="accent">icons</span></h2>
+<div class="grid">
+  <div class="card">
+    <div class="preview"><img src="workplace.svg" alt="Workplace"></div>
+    <div class="name">Workplace</div>
+    <div class="filename">workplace.svg</div>
+    <a class="download" href="workplace.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="mileage-rate.svg" alt="Mileage Rate"></div>
+    <div class="name">Mileage Rate</div>
+    <div class="filename">mileage-rate.svg</div>
+    <a class="download" href="mileage-rate.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="odometer.svg" alt="Odometer"></div>
+    <div class="name">Odometer</div>
+    <div class="filename">odometer.svg</div>
+    <a class="download" href="odometer.svg" download>↓ Download</a>
+  </div>
+  <div class="card">
+    <div class="preview"><img src="generate-report.svg" alt="Generate Report"></div>
+    <div class="name">Generate Report</div>
+    <div class="filename">generate-report.svg</div>
+    <a class="download" href="generate-report.svg" download>↓ Download</a>
+  </div>
+</div>
+
+<h2 class="section-title">Brand <span class="accent">colours</span></h2>
+<div class="colors-row">
+  <div class="swatch">
+    <div class="swatch-bar" style="background: #2D9F6F;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Accent Green</div>
+      <div class="swatch-hex">#2D9F6F</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-bar" style="background: #E07A3A;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Secondary Orange</div>
+      <div class="swatch-hex">#E07A3A</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-bar" style="background: #85B7EB;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Info Blue</div>
+      <div class="swatch-hex">#85B7EB</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-bar" style="background: #0a0a0c; border: 1px solid rgba(255,255,255,0.1);"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Background Dark</div>
+      <div class="swatch-hex">#0A0A0C</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-bar" style="background: #f0efe8;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cream</div>
+      <div class="swatch-hex">#F0EFE8</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0c"/>
+      <stop offset="1" stop-color="#1a1a22"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg2)"/>
+
+  <!-- Outer arc (gauge background) -->
+  <path d="M 200 620 A 312 312 0 1 1 824 620"
+        stroke="#2D9F6F" stroke-width="36" stroke-linecap="round" fill="none" opacity="0.18"/>
+
+  <!-- Filled arc (60% complete) -->
+  <path d="M 200 620 A 312 312 0 0 1 700 280"
+        stroke="#2D9F6F" stroke-width="60" stroke-linecap="round" fill="none"/>
+
+  <!-- Tick marks (5 small) -->
+  <line x1="200" y1="620" x2="160" y2="640" stroke="#f0efe8" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+  <line x1="290" y1="380" x2="248" y2="354" stroke="#f0efe8" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+  <line x1="512" y1="288" x2="512" y2="240" stroke="#f0efe8" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+  <line x1="734" y1="380" x2="776" y2="354" stroke="#f0efe8" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+  <line x1="824" y1="620" x2="864" y2="640" stroke="#f0efe8" stroke-width="14" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Needle -->
+  <line x1="512" y1="620" x2="700" y2="320" stroke="#E07A3A" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- Center hub -->
+  <circle cx="512" cy="620" r="60" fill="#0a0a0c" stroke="#E07A3A" stroke-width="14"/>
+  <circle cx="512" cy="620" r="22" fill="#E07A3A"/>
+</svg>

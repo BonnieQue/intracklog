@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="220" fill="#0a0a0c"/>
+
+  <!-- Pin outline -->
+  <path d="M 512 200
+           C 360 200 240 320 240 472
+           C 240 624 480 850 512 880
+           C 544 850 784 624 784 472
+           C 784 320 664 200 512 200 Z"
+        fill="none" stroke="#2D9F6F" stroke-width="44" stroke-linejoin="round"/>
+
+  <!-- Tiny minimalist car inside -->
+  <g transform="translate(380 410)">
+    <!-- Body -->
+    <path d="M 20 100
+             L 50 50
+             Q 56 40 70 40
+             L 190 40
+             Q 200 40 208 48
+             L 244 92
+             L 256 100
+             L 256 124
+             L 0 124
+             L 0 100 Z"
+          fill="#2D9F6F"/>
+    <!-- Window cutout -->
+    <path d="M 70 60
+             L 184 60
+             Q 192 60 198 66
+             L 224 96
+             L 60 96 Z"
+          fill="#0a0a0c"/>
+    <!-- Wheels -->
+    <circle cx="60" cy="124" r="22" fill="#0a0a0c"/>
+    <circle cx="60" cy="124" r="8" fill="#2D9F6F"/>
+    <circle cx="200" cy="124" r="22" fill="#0a0a0c"/>
+    <circle cx="200" cy="124" r="8" fill="#2D9F6F"/>
+  </g>
+</svg>

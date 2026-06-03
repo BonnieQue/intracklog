@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InTrackLog · User Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  /* ========== VARIABLES & RESET ========== */
+  :root {
+    --bg: #f7f6f1;
+    --paper: #ffffff;
+    --ink: #1a1a1f;
+    --ink-soft: #4a4a55;
+    --ink-muted: #8a8a96;
+    --ink-faint: #c0bfb8;
+    --accent: #2D9F6F;
+    --accent-soft: rgba(45,159,111,0.10);
+    --accent-border: rgba(45,159,111,0.25);
+    --secondary: #E07A3A;
+    --secondary-soft: rgba(224,122,58,0.10);
+    --secondary-border: rgba(224,122,58,0.25);
+    --info: #85B7EB;
+    --info-soft: rgba(133,183,235,0.12);
+    --line: rgba(0,0,0,0.08);
+    --line-strong: rgba(0,0,0,0.18);
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* ========== LAYOUT ========== */
+  .page {
+    max-width: 820px;
+    margin: 40px auto;
+    background: var(--paper);
+    box-shadow: 0 10px 60px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0a0a0c 0%, #131318 50%, #1a1a22 100%);
+    color: #f0efe8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 60px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(45,159,111,0.25) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -150px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(224,122,58,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cover-top { display: flex; align-items: center; gap: 20px; }
+  .cover-logo {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .brand-name {
+    font-family: var(--serif);
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .brand-name .in { color: #6a6a76; font-weight: 700; }
+  .brand-name .track { color: var(--accent); font-weight: 700; }
+  .brand-name .log { color: var(--secondary); font-style: italic; }
+
+  .cover-center {
+    text-align: center;
+    margin: 80px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-size: 86px;
+    line-height: 1;
+    letter-spacing: -2.5px;
+    color: #f0efe8;
+    margin-bottom: 16px;
+  }
+  .cover-title .accent {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .cover-subtitle {
+    font-family: var(--sans);
+    font-size: 18px;
+    color: rgba(240,239,232,0.65);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: rgba(240,239,232,0.5);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-tagline { color: var(--accent); }
+
+  /* ========== TOC ========== */
+  .toc {
+    padding: 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .toc h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+  }
+  .toc li {
+    counter-increment: toc;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    display: flex;
+    align-items: baseline;
+  }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--serif);
+    color: var(--accent);
+    font-size: 18px;
+    font-style: italic;
+    margin-right: 16px;
+    min-width: 40px;
+  }
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    flex: 1;
+  }
+  .toc a:hover { color: var(--accent); }
+
+  /* ========== CONTENT ========== */
+  .content { padding: 60px; }
+  section { margin-bottom: 80px; }
+  section:last-child { margin-bottom: 0; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .section-num {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 38px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin-top: 36px;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+
+  .lede {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 24px 0;
+  }
+  p { margin-bottom: 14px; color: var(--ink-soft); }
+  p strong { color: var(--ink); font-weight: 700; }
+
+  ul, ol { margin: 12px 0 16px 22px; }
+  li { margin-bottom: 6px; color: var(--ink-soft); }
+
+  /* ========== STEPS ========== */
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 20px 0;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 14px 16px 14px 56px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* ========== CARDS / CALLOUTS ========== */
+  .tip, .note, .warning {
+    margin: 20px 0;
+    padding: 18px 22px 18px 58px;
+    border-radius: 10px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .tip {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--ink);
+  }
+  .tip::before {
+    content: '💡';
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    font-size: 22px;
+  }
+  .note {
+    background: var(--info-soft);
+    border: 1px solid rgba(133,183,235,0.3);
+  }
+  .note::before {
+    content: 'ℹ';
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    font-size: 20px;
+    color: var(--info);
+    font-weight: 700;
+  }
+  .warning {
+    background: var(--secondary-soft);
+    border: 1px solid var(--secondary-border);
+  }
+  .warning::before {
+    content: '⚠';
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    font-size: 20px;
+    color: var(--secondary);
+  }
+
+  /* ========== TABLES ========== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--paper);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  th {
+    background: linear-gradient(180deg, #f0efe8, #eaeae3);
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 2px solid var(--line-strong);
+  }
+  td {
+    padding: 14px 16px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 14px;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
+  td strong { color: var(--ink); }
+
+  /* ========== TIER COMPARISON ========== */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .tier {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+  }
+  .tier.highlight {
+    border-color: var(--accent);
+    border-width: 2px;
+    box-shadow: 0 4px 20px rgba(45,159,111,0.15);
+  }
+  .tier-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .tier-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .tier-price-period { font-size: 11px; color: var(--ink-muted); margin-bottom: 12px; }
+  .tier-features { list-style: none; margin: 0; font-size: 12px; text-align: left; }
+  .tier-features li {
+    padding: 4px 0 4px 18px;
+    position: relative;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .tier-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ========== QUICK REFERENCE ========== */
+  .quickref-table th, .quickref-table td {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    padding: 40px 60px;
+    background: linear-gradient(180deg, #f0efe8 0%, #e8e7e0 100%);
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 12px;
+    border-top: 3px solid var(--accent);
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .footer-brand .accent { color: var(--accent); }
+
+  /* ========== PRINT ========== */
+  @media print {
+    body { background: white; font-size: 11pt; }
+    .page { box-shadow: none; max-width: none; margin: 0; border-radius: 0; }
+    .cover { min-height: 11in; page-break-after: always; }
+    .toc, section { page-break-inside: avoid; }
+    h1, h2 { page-break-after: avoid; }
+    a { color: var(--ink) !important; text-decoration: none; }
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 700px) {
+    .page { margin: 0; border-radius: 0; }
+    .cover { padding: 50px 30px 30px; }
+    .cover-title { font-size: 56px; }
+    .toc, .content { padding: 40px 24px; }
+    .footer { padding: 30px 24px; }
+    .tiers { grid-template-columns: 1fr; }
+    .section-num { font-size: 40px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ============================================================ -->
+<!-- COVER PAGE                                                   -->
+<!-- ============================================================ -->
+<div class="cover">
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      <!-- InTrackLog Logo SVG -->
+      <svg width="60" height="68" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 68 Q25 60 32 42 Q39 24 58 12" stroke="#2D9F6F" stroke-width="4" stroke-linecap="round"/>
+        <path d="M12 73 Q35 65 42 47 Q49 29 68 17" stroke="#2D9F6F" stroke-width="1.8" stroke-linecap="round" opacity="0.35"/>
+        <circle cx="62" cy="7" r="8" fill="#2D9F6F"/>
+        <circle cx="62" cy="7" r="3.5" fill="#E07A3A"/>
+        <line x1="16" y1="63" x2="24" y2="58" stroke="#2D9F6F" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+        <line x1="31" y1="50" x2="39" y2="43" stroke="#2D9F6F" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+        <line x1="46" y1="33" x2="54" y2="26" stroke="#2D9F6F" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+      </svg>
+      <div class="brand-name"><span class="in">In</span><span class="track">Track</span><span class="log">Log</span></div>
+    </div>
+  </div>
+
+  <div class="cover-center">
+    <div class="cover-eyebrow">User Manual · v1.0</div>
+    <h1 class="cover-title">Drive forward.<br><span class="accent">Track smart.</span></h1>
+    <p class="cover-subtitle">Everything you need to know about logging trips, tracking expenses, generating SARS-ready reports, and managing your fleet — in one friendly guide.</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div>InTrackLog (Pty) Ltd · South Africa</div>
+    <div class="cover-tagline">2026 · intracklog.com</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS                                            -->
+<!-- ============================================================ -->
+<div class="toc">
+  <h2>What's inside</h2>
+  <ol>
+    <li><a href="#s1">Getting Started</a></li>
+    <li><a href="#s2">Your First Vehicle</a></li>
+    <li><a href="#s3">The Dashboard</a></li>
+    <li><a href="#s4">Tracking Trips</a></li>
+    <li><a href="#s5">Logging Expenses</a></li>
+    <li><a href="#s6">Saving Locations</a></li>
+    <li><a href="#s7">Working with Teams</a></li>
+    <li><a href="#s8">Generating Reports</a></li>
+    <li><a href="#s9">Subscriptions &amp; Billing</a></li>
+    <li><a href="#s10">Account &amp; Settings</a></li>
+    <li><a href="#s11">Notifications</a></li>
+    <li><a href="#s12">Privacy, Security &amp; Data</a></li>
+    <li><a href="#s13">Troubleshooting</a></li>
+    <li><a href="#s14">Need More Help?</a></li>
+    <li><a href="#qr">Quick Reference</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- CONTENT                                                       -->
+<!-- ============================================================ -->
+<div class="content">
+
+<section id="s1">
+  <div class="section-header"><div class="section-num">01</div><h1>Getting Started</h1></div>
+  <p class="lede">Welcome! InTrackLog is your South African vehicle mileage and expense tracker. This guide walks you through every feature so you can get the most out of the app.</p>
+
+  <h2>What InTrackLog does</h2>
+  <p>InTrackLog tracks your vehicle journeys and related expenses, then turns that data into reports you can submit to <strong>SARS</strong> for travel allowance claims, or to your <strong>employer</strong> for reimbursement.</p>
+
+  <h2>Where to use it</h2>
+  <ul>
+    <li><strong>Mobile app (Android)</strong> — Full features including GPS trip tracking. Best for daily use.</li>
+    <li><strong>Web</strong> at <a href="https://intracklog.com">intracklog.com</a> — Same login, same data. Use this for managing your account, generating reports, or testing on a computer.</li>
+  </ul>
+  <div class="note">GPS trip tracking is only available on the mobile app, not the website.</div>
+
+  <h2>Creating an account</h2>
+  <ol class="steps">
+    <li>Open the app or go to <strong>intracklog.com</strong></li>
+    <li>Tap <strong>"Get started"</strong></li>
+    <li>Fill in your full name, email, and a password (at least 6 characters with a letter and a number)</li>
+    <li>Tap <strong>Continue</strong></li>
+    <li>Add your first vehicle now or skip and add later</li>
+    <li>Check your email for a verification link — click it to confirm</li>
+  </ol>
+
+  <h2>Signing in</h2>
+  <ol class="steps">
+    <li>Open the app or website</li>
+    <li>Tap <strong>"Sign in"</strong></li>
+    <li>Enter your email and password</li>
+    <li>Tap <strong>Sign in</strong> — you'll land on your dashboard</li>
+  </ol>
+
+  <h2>Forgot your password?</h2>
+  <ol class="steps">
+    <li>On the sign in screen, tap <strong>"Forgot password?"</strong></li>
+    <li>Enter your email address</li>
+    <li>Check your inbox for a reset link (also check spam)</li>
+    <li>Click the link to set a new password</li>
+    <li>Sign in with your new password</li>
+  </ol>
+</section>
+
+<section id="s2">
+  <div class="section-header"><div class="section-num">02</div><h1>Your First Vehicle</h1></div>
+  <p class="lede">Before you can log trips, you need at least one vehicle on file.</p>
+
+  <h2>Adding a vehicle</h2>
+  <ol class="steps">
+    <li>From the dashboard, tap <strong>Vehicles</strong> (the car icon)</li>
+    <li>Tap <strong>+ Add vehicle</strong></li>
+    <li>Fill in the licence plate (e.g. "CA 456-789"), description (e.g. "Toyota Hilux 2.4 GD-6"), and current odometer reading</li>
+    <li>Tap <strong>Add vehicle</strong></li>
+  </ol>
+
+  <h2>Updating odometer readings</h2>
+  <p>If your odometer creeps ahead of what's in the app:</p>
+  <ol class="steps">
+    <li>Tap <strong>Account → Settings → Odometer</strong></li>
+    <li>Find your vehicle and update the current reading</li>
+  </ol>
+  <div class="tip">The dashboard automatically tracks your latest odometer reading from your trip entries — manual updates here are only needed if you skipped logging some trips.</div>
+</section>
+
+<section id="s3">
+  <div class="section-header"><div class="section-num">03</div><h1>The Dashboard</h1></div>
+  <p class="lede">Your dashboard is the home screen of the app. Everything starts here.</p>
+
+  <h2>What you'll see</h2>
+  <ul>
+    <li><strong>Five quick-access buttons</strong> at the top: Vehicles, Trips, Locations, Reports, Teams</li>
+    <li><strong>Your monthly stats</strong>: total trips, distance driven</li>
+    <li><strong>Your current vehicle</strong> card</li>
+    <li><strong>Recent trips</strong> and your <strong>latest odometer reading</strong></li>
+    <li>A green <strong>"Start a trip"</strong> button to begin GPS tracking</li>
+  </ul>
+
+  <h2>Top right corner</h2>
+  <ul>
+    <li><strong>Theme toggle</strong> — switch between dark and light mode</li>
+    <li><strong>Account</strong> dropdown — Edit Account, Settings, Help &amp; Support, Privacy Policy, Terms of Service, Log out</li>
+  </ul>
+  <div class="tip">Tap the <strong>InTrackLog logo</strong> at the top left to return to the default dashboard view at any time.</div>
+</section>
+
+<section id="s4">
+  <div class="section-header"><div class="section-num">04</div><h1>Tracking Trips</h1></div>
+  <p class="lede">You can log trips two ways — GPS tracking (automatic) or manual entry.</p>
+
+  <h2>Method A · GPS tracking <span style="font-size: 13px; color: var(--ink-muted); font-weight: normal;">(mobile app only)</span></h2>
+  <ol class="steps">
+    <li>From the dashboard, tap <strong>"Start a trip"</strong></li>
+    <li>If you have multiple vehicles, choose which one you're using</li>
+    <li>Allow location permissions when prompted</li>
+    <li>Drive! The app tracks your route automatically</li>
+    <li>When done, tap <strong>"Stop &amp; save trip"</strong></li>
+  </ol>
+  <p>Your trip is saved with distance, duration, start and end locations (auto-detected via GPS), and a date/time stamp.</p>
+
+  <h2>Method B · Manual entry</h2>
+  <ol class="steps">
+    <li>Tap <strong>Vehicles</strong> → choose your vehicle</li>
+    <li>Fill in the New entry form: date, odometer start &amp; end, expense type, amount, optional notes</li>
+    <li>Attach receipts or photos if you have them</li>
+    <li>Tap <strong>Save entry</strong></li>
+  </ol>
+
+  <h2>When to use which</h2>
+  <table>
+    <thead>
+      <tr><th>Scenario</th><th>Method</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>You're about to start driving</td><td><strong>GPS</strong> — tap Start a trip</td></tr>
+      <tr><td>You forgot to start GPS</td><td>Manual entry</td></tr>
+      <tr><td>You don't have signal/permissions</td><td>Manual entry</td></tr>
+      <tr><td>You want a precise route map</td><td><strong>GPS</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s5">
+  <div class="section-header"><div class="section-num">05</div><h1>Logging Expenses</h1></div>
+  <p class="lede">Every trip can have an expense attached, and you can log expenses without a trip too — perfect for servicing or tyres.</p>
+
+  <h2>Expense types</h2>
+  <ul>
+    <li><strong>Fuel</strong> — petrol, diesel</li>
+    <li><strong>Service</strong> — vehicle servicing</li>
+    <li><strong>Tyres</strong> — replacement, rotation, repair</li>
+    <li><strong>Toll</strong> — e-toll, gantry</li>
+    <li><strong>Other</strong> — anything else</li>
+  </ul>
+
+  <h2>Attaching receipts</h2>
+  <ol class="steps">
+    <li>When logging an entry, scroll down to the Attachments section</li>
+    <li>Tap to add a photo from your camera or pick a file from your phone</li>
+    <li>The receipt is uploaded and stored with the entry</li>
+  </ol>
+  <div class="tip">Your receipts are accessible later in Reports for SARS submissions — keep them organised here so you don't lose them.</div>
+</section>
+
+<section id="s6">
+  <div class="section-header"><div class="section-num">06</div><h1>Saving Locations</h1></div>
+  <p class="lede">Frequently visit the same places? Save them as locations for quick reference and clearer reports.</p>
+
+  <h2>Adding a saved location</h2>
+  <ol class="steps">
+    <li>From the dashboard, tap <strong>Locations</strong></li>
+    <li>Tap <strong>+ Add a saved location</strong></li>
+    <li>Fill in: location name (e.g. "Head Office"), address, city, country</li>
+    <li>Tap <strong>Save location</strong></li>
+  </ol>
+
+  <h2>Auto-discovered locations</h2>
+  <p>Anywhere you start or end a GPS trip is automatically detected and added under <em>"Discovered from trips"</em>. These help you see where you've been without manual setup.</p>
+</section>
+
+<section id="s7">
+  <div class="section-header"><div class="section-num">07</div><h1>Working with Teams</h1></div>
+  <p class="lede">If you manage a fleet or work with colleagues who share a workplace, Teams lets you coordinate.</p>
+  <div class="note">Teams is available on the <strong>Pro</strong> and <strong>Business</strong> plans only.</div>
+
+  <h2>Creating a team</h2>
+  <ol class="steps">
+    <li>Tap <strong>Teams</strong> on the dashboard</li>
+    <li>Tap the dropdown → <strong>+ Create a new team</strong></li>
+    <li>Fill in team name, workplace name, and workplace address</li>
+    <li>Tap <strong>Next</strong></li>
+    <li>Choose a mileage rate: Standard (R 4.64/km), Custom, or None</li>
+    <li>Tap <strong>Create team</strong> (or <strong>Skip</strong> to skip rate)</li>
+  </ol>
+
+  <h2>Adding members</h2>
+  <ol class="steps">
+    <li>Inside your team, tap the <strong>Members</strong> tab</li>
+    <li>Tap <strong>+ Add</strong></li>
+    <li>Enter the member's name, email, and role (Admin or Member)</li>
+    <li>Tap <strong>Add member</strong></li>
+  </ol>
+
+  <h2>Sending invitations</h2>
+  <ol class="steps">
+    <li>In the team view, tap the <strong>Pending</strong> tab</li>
+    <li>Tap <strong>+ Send invite</strong></li>
+    <li>Enter the person's email</li>
+    <li>Tap <strong>Send invite</strong> — your default email app opens with a pre-written invitation</li>
+    <li>Hit Send in your email app</li>
+  </ol>
+  <p>The pending invite appears in the Pending tab until they join or you cancel.</p>
+
+  <h2>Switching between teams</h2>
+  <p>Use the dropdown at the top of the Teams section to switch between <strong>My Logbook</strong> (your personal trips), any team you belong to, or to create a new team.</p>
+</section>
+
+<section id="s8">
+  <div class="section-header"><div class="section-num">08</div><h1>Generating Reports</h1></div>
+  <p class="lede">Reports are how you get your data out of the app for SARS submissions, employer reimbursement, or personal records.</p>
+
+  <h2>Generating a report</h2>
+  <ol class="steps">
+    <li>Tap <strong>Account → Settings → Generate Report</strong></li>
+    <li>Review the summary card showing total trips, distance, and expenses</li>
+    <li>Choose your export format</li>
+  </ol>
+
+  <h2>Export formats</h2>
+  <table>
+    <thead>
+      <tr><th>Format</th><th>Best for</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>PDF report</strong></td><td>SARS submissions and employer reimbursement (printable, branded)</td></tr>
+      <tr><td><strong>CSV (Excel)</strong></td><td>Opening in Excel/Google Sheets for further analysis</td></tr>
+      <tr><td><strong>JSON data export</strong></td><td>Full data backup including teams, locations, settings (your POPIA right)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What's in the PDF report</h2>
+  <ul>
+    <li><strong>Header</strong> — your name, email, employee number (if set), date generated</li>
+    <li><strong>Summary table</strong> — total trips, total km, mileage rate, reimbursement, expenses</li>
+    <li><strong>Trip log</strong> — every trip with date, vehicle, plate, from/to, distance, reimbursement amount</li>
+    <li><strong>Footer note</strong> — explains the report's intended use</li>
+  </ul>
+</section>
+
+<section id="s9">
+  <div class="section-header"><div class="section-num">09</div><h1>Subscriptions &amp; Billing</h1></div>
+  <p class="lede">InTrackLog has four subscription tiers. Start free, upgrade when you need more.</p>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-name">Free</div>
+      <div class="tier-price">R 0</div>
+      <div class="tier-price-period">per month</div>
+      <ul class="tier-features">
+        <li>3 vehicles</li>
+        <li>Manual logging</li>
+        <li>Basic reports</li>
+        <li>30-day history</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Starter</div>
+      <div class="tier-price">R 75</div>
+      <div class="tier-price-period">per month</div>
+      <ul class="tier-features">
+        <li>5 vehicles</li>
+        <li>GPS tracking</li>
+        <li>Expense tracking</li>
+        <li>Full history</li>
+        <li>PDF reports</li>
+      </ul>
+    </div>
+    <div class="tier highlight">
+      <div class="tier-name">Pro</div>
+      <div class="tier-price">R 99</div>
+      <div class="tier-price-period">per month</div>
+      <ul class="tier-features">
+        <li>10 vehicles</li>
+        <li>GPS tracking</li>
+        <li>Teams (5 members)</li>
+        <li>Custom rates</li>
+        <li>Advanced reports</li>
+        <li>Priority support</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Business</div>
+      <div class="tier-price">R 249</div>
+      <div class="tier-price-period">per month</div>
+      <ul class="tier-features">
+        <li>Unlimited vehicles</li>
+        <li>Unlimited teams</li>
+        <li>Admin dashboard</li>
+        <li>API access</li>
+        <li>Dedicated support</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Upgrading</h2>
+  <ol class="steps">
+    <li>Tap <strong>Account → Edit Account → My Subscription</strong> tab</li>
+    <li>Tap the plan you want</li>
+    <li>Fill in your card details and tap <strong>Pay R XX</strong></li>
+    <li>Complete payment on PayFast (South Africa's secure payment processor)</li>
+    <li>You're returned to the app and your plan is upgraded automatically</li>
+  </ol>
+
+  <h2>Accepted payment methods</h2>
+  <p>PayFast accepts: Credit / Debit Cards (Visa, Mastercard), Instant EFT, SnapScan, Capitec Pay, Masterpass, and Zapper.</p>
+
+  <h2>Cancelling or downgrading</h2>
+  <p>Switch back to Free or a lower plan from <strong>Edit Account → My Subscription</strong>. PayFast subscriptions can also be cancelled directly through PayFast or by emailing support@intracklog.com.</p>
+</section>
+
+<section id="s10">
+  <div class="section-header"><div class="section-num">10</div><h1>Account &amp; Settings</h1></div>
+  <p class="lede">Personalise your experience and keep your account up to date.</p>
+
+  <h2>Edit Account</h2>
+  <p>Tap <strong>Account → Edit Account</strong>. Two tabs:</p>
+  <ul>
+    <li><strong>My Subscription</strong> — see and change your plan</li>
+    <li><strong>Account Details</strong> — edit your full name, email, employee number (appears on reports), and change your password</li>
+  </ul>
+
+  <h2>Settings sections</h2>
+  <ol>
+    <li><strong>Vehicles</strong> — view and add registered vehicles</li>
+    <li><strong>Workplace</strong> — set your default workplace name and address (used in reports)</li>
+    <li><strong>Mileage Rate</strong> — set the rate per km for reimbursement (default R 4.64 — the SARS standard rate)</li>
+    <li><strong>Odometer</strong> — update each vehicle's current odometer reading</li>
+    <li><strong>Notifications</strong> — toggle reminder notifications</li>
+    <li><strong>Generate Report</strong> — export your data</li>
+  </ol>
+</section>
+
+<section id="s11">
+  <div class="section-header"><div class="section-num">11</div><h1>Notifications</h1></div>
+  <p class="lede">Reminders to keep your records up to date.</p>
+
+  <h2>Setting up</h2>
+  <ol class="steps">
+    <li>Tap <strong>Account → Settings → Notifications</strong></li>
+    <li>Toggle on what you want:
+      <ul>
+        <li><strong>Daily trip reminder</strong> — 6:00 PM every day, prompts you to log today's trips</li>
+        <li><strong>Monthly report reminder</strong> — 1st of every month, prompts you to generate your report</li>
+      </ul>
+    </li>
+    <li>Tap <strong>Send test notification</strong> to confirm they're working</li>
+  </ol>
+
+  <p>To disable, toggle off in the same place. You can also disable all notifications from your device's system settings.</p>
+</section>
+
+<section id="s12">
+  <div class="section-header"><div class="section-num">12</div><h1>Privacy, Security &amp; Data</h1></div>
+  <p class="lede">Your data is yours. Here's how we keep it safe.</p>
+
+  <h2>Security at a glance</h2>
+  <ul>
+    <li>All data stored securely in our cloud database (encrypted in transit and at rest)</li>
+    <li>Only you can access your data (row-level security)</li>
+    <li>GPS tracking is opt-in and only runs when you actively start a trip</li>
+    <li>We never sell your data to third parties</li>
+  </ul>
+
+  <h2>Reading the legal stuff</h2>
+  <ul>
+    <li><strong>Privacy Policy</strong> — Account dropdown → Privacy Policy. POPIA-compliant, explains what data we collect and your rights.</li>
+    <li><strong>Terms of Service</strong> — Account dropdown → Terms of Service. The legal terms of using InTrackLog.</li>
+  </ul>
+
+  <h2>Exporting your data</h2>
+  <p>Per POPIA, you have the right to receive all data we hold about you:</p>
+  <ol class="steps">
+    <li>Go to <strong>Account → Settings → Generate Report</strong></li>
+    <li>Tap <strong>Export all my data (JSON)</strong></li>
+    <li>The file contains everything: vehicles, trips, expenses, locations, teams, settings</li>
+  </ol>
+
+  <h2>Deleting your account</h2>
+  <p>To permanently delete your account and all associated data, email <strong>privacy@intracklog.com</strong> with subject "Account deletion request". We'll remove your data within 30 days. Some data may be retained as required by law (SARS records: 5 years).</p>
+
+  <h2>Changing your password</h2>
+  <ul>
+    <li><strong>From the app</strong>: Account → Edit Account → Account Details → Change password</li>
+    <li><strong>If you've forgotten it</strong>: Use the "Forgot password?" link on the sign in screen</li>
+  </ul>
+</section>
+
+<section id="s13">
+  <div class="section-header"><div class="section-num">13</div><h1>Troubleshooting</h1></div>
+  <p class="lede">Quick fixes for common issues.</p>
+
+  <h2>GPS tracking won't start</h2>
+  <ul>
+    <li>Check that location permissions are granted: Phone Settings → Apps → InTrackLog → Permissions → Location → Allow</li>
+    <li>GPS only works on the <strong>mobile app</strong>, not the website</li>
+    <li>Restart the app after granting permissions</li>
+  </ul>
+
+  <h2>I added a vehicle but it didn't save</h2>
+  <ul>
+    <li>Make sure your subscription supports another vehicle (Free = 3, Starter = 5, Pro = 10, Business = unlimited)</li>
+    <li>Check your internet connection</li>
+    <li>Try logging out and back in</li>
+  </ul>
+
+  <h2>The Pay button does nothing on the website</h2>
+  <ul>
+    <li>Make sure you're using <strong>https://intracklog.com</strong> (the secure version)</li>
+    <li>Some browsers block payment forms on insecure connections</li>
+    <li>Try a different browser (Chrome, Edge, Firefox)</li>
+  </ul>
+
+  <h2>I'm not getting password reset emails</h2>
+  <ul>
+    <li>Check your <strong>spam / junk folder</strong></li>
+    <li>Confirm you typed the right email address</li>
+    <li>Wait a few minutes — emails can take up to 5 minutes</li>
+    <li>Try again — request a new reset link</li>
+  </ul>
+
+  <h2>The app is on Free mode but I paid</h2>
+  <ul>
+    <li>Wait 1-2 minutes for PayFast to confirm the transaction</li>
+    <li>Sign out and back in to refresh</li>
+    <li>If still wrong, email support@intracklog.com with your transaction reference</li>
+  </ul>
+
+  <h2>I can't see my Teams</h2>
+  <ul>
+    <li>Teams require a <strong>Pro or Business</strong> subscription</li>
+    <li>Check Account → Edit Account → My Subscription to confirm your tier</li>
+  </ul>
+</section>
+
+<section id="s14">
+  <div class="section-header"><div class="section-num">14</div><h1>Need More Help?</h1></div>
+  <p class="lede">We're here when you need us.</p>
+
+  <h2>Help &amp; Support page</h2>
+  <p>Inside the app: <strong>Account → Help &amp; Support</strong>. You'll find FAQs, direct links to email support, and shortcuts to Privacy Policy and Terms of Service.</p>
+
+  <h2>Contact us</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>General help</strong></td><td>support@intracklog.com</td></tr>
+      <tr><td><strong>Privacy / data / account deletion</strong></td><td>privacy@intracklog.com</td></tr>
+      <tr><td><strong>Website</strong></td><td>intracklog.com</td></tr>
+    </tbody>
+  </table>
+  <p>We respond within 1 business day.</p>
+
+  <h2>Reporting bugs</h2>
+  <ol class="steps">
+    <li>Take a screenshot of the issue if possible</li>
+    <li>Note what you were doing when it happened</li>
+    <li>Email support@intracklog.com with the details</li>
+  </ol>
+</section>
+
+<section id="qr">
+  <div class="section-header"><div class="section-num">QR</div><h1>Quick Reference</h1></div>
+  <p class="lede">Common tasks at a glance.</p>
+
+  <table class="quickref-table">
+    <thead>
+      <tr><th>I want to…</th><th>Where to go</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Add a vehicle</td><td>Dashboard → Vehicles → + Add vehicle</td></tr>
+      <tr><td>Track a trip via GPS</td><td>Dashboard → Start a trip</td></tr>
+      <tr><td>Log a trip manually</td><td>Vehicles → choose vehicle → fill in entry</td></tr>
+      <tr><td>Save a location</td><td>Dashboard → Locations → + Add a saved location</td></tr>
+      <tr><td>Create a team</td><td>Dashboard → Teams → + Create a new team</td></tr>
+      <tr><td>Generate a report</td><td>Account → Settings → Generate Report</td></tr>
+      <tr><td>Change subscription</td><td>Account → Edit Account → My Subscription</td></tr>
+      <tr><td>Edit name / email</td><td>Account → Edit Account → Account Details</td></tr>
+      <tr><td>Change password</td><td>Account → Edit Account → Account Details → Change password</td></tr>
+      <tr><td>Set mileage rate</td><td>Account → Settings → Mileage Rate</td></tr>
+      <tr><td>Update odometer</td><td>Account → Settings → Odometer</td></tr>
+      <tr><td>Toggle dark mode</td><td>Top right toggle on dashboard</td></tr>
+      <tr><td>Reset password</td><td>Sign in screen → Forgot password?</td></tr>
+      <tr><td>Get help</td><td>Account → Help &amp; Support</td></tr>
+      <tr><td>Sign out</td><td>Account → Log out</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</div><!-- /content -->
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                        -->
+<!-- ============================================================ -->
+<div class="footer">
+  <div class="footer-brand"><span style="color: #6a6a76; font-weight: 700;">In</span><span class="accent" style="font-weight: 700;">Track</span><span style="color: var(--secondary); font-style: italic;">Log</span></div>
+  <p>Drive forward. Track smart.</p>
+  <p style="margin-top: 16px;">InTrackLog (Pty) Ltd · South Africa · intracklog.com</p>
+  <p>© 2026 InTrackLog. All rights reserved. · Last updated: 30 April 2026</p>
+</div>
+
+</div><!-- /page -->
+
+</body>
+</html>

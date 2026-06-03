@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg9" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2D9F6F"/>
+      <stop offset="1" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg9)"/>
+
+  <!-- Stopwatch crown/button -->
+  <rect x="476" y="180" width="72" height="60" rx="14" fill="#E07A3A"/>
+  <rect x="496" y="160" width="32" height="40" rx="10" fill="#E07A3A"/>
+
+  <!-- Side buttons -->
+  <rect x="200" y="320" width="40" height="80" rx="14" fill="#E07A3A" opacity="0.7" transform="rotate(-30 220 360)"/>
+  <rect x="784" y="320" width="40" height="80" rx="14" fill="#E07A3A" opacity="0.7" transform="rotate(30 804 360)"/>
+
+  <!-- Watch face outer -->
+  <circle cx="512" cy="580" r="290" fill="#0a0a0c" stroke="#f0efe8" stroke-width="20"/>
+
+  <!-- Progress arc (75% complete, in green) -->
+  <path d="M 512 320
+           A 260 260 0 1 1 252 580"
+        fill="none" stroke="#2D9F6F" stroke-width="36" stroke-linecap="round"/>
+
+  <!-- Tick marks (12 hour positions) -->
+  <g stroke="#f0efe8" stroke-linecap="round">
+    <line x1="512" y1="334" x2="512" y2="366" stroke-width="8"/>
+    <line x1="690" y1="580" x2="722" y2="580" stroke-width="6" opacity="0.6"/>
+    <line x1="512" y1="826" x2="512" y2="794" stroke-width="6" opacity="0.6"/>
+    <line x1="334" y1="580" x2="302" y2="580" stroke-width="6" opacity="0.6"/>
+  </g>
+
+  <!-- Hands -->
+  <line x1="512" y1="580" x2="650" y2="450" stroke="#E07A3A" stroke-width="14" stroke-linecap="round"/>
+  <line x1="512" y1="580" x2="512" y2="380" stroke="#f0efe8" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Center -->
+  <circle cx="512" cy="580" r="22" fill="#E07A3A"/>
+  <circle cx="512" cy="580" r="6" fill="#0a0a0c"/>
+
+  <!-- "KM" or distance hint at bottom -->
+  <text x="512" y="730" fill="#2D9F6F" font-family="Arial Black, sans-serif" font-size="48" font-weight="900" text-anchor="middle" letter-spacing="6">KM</text>
+</svg>

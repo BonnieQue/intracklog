@@ -1,0 +1,31 @@
+{
+  "cli": {
+    "version": ">= 14.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://lanzwobisthsmzswumal.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxhbnp3b2Jpc3Roc216c3d1bWFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNDQzMjMsImV4cCI6MjA5NTkyMDMyM30.fEY4dn76fBpwMROywnLmdjLgz-7AGvLIPSL3kxiIb4s"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Beige background -->
+  <rect width="1024" height="1024" rx="220" fill="#d8d7d0"/>
+
+  <!-- ========== ROAD (curving with perspective) ========== -->
+  <!-- Left edge of road (curves from bottom-left up to where pin sits) -->
+  <path d="M 80 980
+           C 100 820 140 700 220 580
+           C 280 480 340 420 420 380"
+        stroke="#2D9F6F" stroke-width="36" stroke-linecap="round" fill="none"/>
+
+  <!-- Right edge of road (parallel curve, narrower at top for perspective) -->
+  <path d="M 380 980
+           C 320 820 320 700 380 600
+           C 420 520 460 460 510 430"
+        stroke="#2D9F6F" stroke-width="36" stroke-linecap="round" fill="none"/>
+
+  <!-- Dashed centre line -->
+  <path d="M 230 980
+           C 220 840 240 720 300 600
+           C 340 520 400 460 460 410"
+        stroke="#2D9F6F" stroke-width="22" stroke-linecap="round" fill="none"
+        stroke-dasharray="40 50"/>
+
+  <!-- ========== PIN (outlined, orange) ========== -->
+  <g transform="translate(380 60)">
+    <!-- Pin outline shape -->
+    <path d="M 260 0
+             C 132 0 28 104 28 232
+             C 28 348 232 540 260 568
+             C 288 540 492 348 492 232
+             C 492 104 388 0 260 0 Z"
+          stroke="#E07A3A" stroke-width="36" stroke-linejoin="round" fill="none"/>
+
+    <!-- ========== CAR (front view, outlined orange, inside the pin) ========== -->
+    <g transform="translate(140 130)">
+      <!-- Roof / cabin top (rounded windshield top) -->
+      <path d="M 60 50
+               Q 60 16 100 14
+               L 140 14
+               Q 180 16 180 50"
+            stroke="#E07A3A" stroke-width="20" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+
+      <!-- Windshield (line below the roof) -->
+      <path d="M 60 50
+               L 70 90
+               L 170 90
+               L 180 50"
+            stroke="#E07A3A" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+
+      <!-- Hood / front of car -->
+      <path d="M 30 100
+               L 50 90
+               L 70 90"
+            stroke="#E07A3A" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+      <path d="M 210 100
+               L 190 90
+               L 170 90"
+            stroke="#E07A3A" stroke-width="16" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+
+      <!-- Lower body (bumper area) -->
+      <path d="M 20 130
+               Q 16 100 38 100
+               L 202 100
+               Q 224 100 220 130
+               L 220 170
+               Q 220 184 206 184
+               L 178 184
+               Q 168 184 168 174
+               L 168 170
+               L 72 170
+               L 72 174
+               Q 72 184 62 184
+               L 34 184
+               Q 20 184 20 170 Z"
+            stroke="#E07A3A" stroke-width="20" stroke-linejoin="round" fill="none"/>
+
+      <!-- Headlights -->
+      <circle cx="48" cy="138" r="10" stroke="#E07A3A" stroke-width="14" fill="none"/>
+      <circle cx="192" cy="138" r="10" stroke="#E07A3A" stroke-width="14" fill="none"/>
+
+      <!-- Grille / front bumper detail line -->
+      <line x1="80" y1="160" x2="160" y2="160" stroke="#E07A3A" stroke-width="14" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

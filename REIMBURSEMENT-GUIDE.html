@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InTrackLog · Reconcile & Reimbursement Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f1; --paper: #ffffff; --ink: #1a1a1f; --ink-soft: #4a4a55; --ink-muted: #8a8a96;
+    --accent: #52AD3B; --accent-soft: rgba(82,173,59,0.08); --accent-border: rgba(82,173,59,0.25);
+    --secondary: #E07A3A; --info: #85B7EB; --line: rgba(0,0,0,0.08);
+    --serif: 'Instrument Serif', Georgia, serif; --sans: 'DM Sans', -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 15px; }
+  .page { max-width: 800px; margin: 30px auto; background: var(--paper); box-shadow: 0 8px 40px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+
+  .cover { background: linear-gradient(160deg, #0a0a0c 0%, #131318 100%); color: #f0efe8; padding: 54px 50px 46px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -150px; right: -150px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(82,173,59,0.25) 0%, transparent 60%); }
+  .brand { font-family: var(--serif); font-size: 26px; margin-bottom: 40px; position: relative; z-index: 1; }
+  .brand .in { color: #6a6a76; font-weight: 700; } .brand .track { color: var(--accent); font-weight: 700; } .brand .log { color: var(--secondary); font-style: italic; }
+  .eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; position: relative; z-index: 1; }
+  .cover h1 { font-family: var(--serif); font-size: 46px; line-height: 1.05; letter-spacing: -1px; margin-bottom: 14px; position: relative; z-index: 1; }
+  .cover h1 .accent { color: var(--accent); font-style: italic; }
+  .cover p { font-size: 15px; color: rgba(240,239,232,0.65); max-width: 540px; position: relative; z-index: 1; }
+
+  .content { padding: 40px 50px 50px; }
+  h2 { font-family: var(--serif); font-size: 28px; letter-spacing: -0.3px; margin: 38px 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+  h2:first-child { margin-top: 0; }
+  h3 { font-size: 17px; margin: 26px 0 8px; color: var(--ink); }
+  p { margin-bottom: 12px; color: var(--ink-soft); }
+  .lead { font-size: 16px; color: var(--ink-soft); }
+
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; }
+  .pill.driver { background: var(--accent-soft); color: var(--accent); }
+  .pill.admin { background: rgba(224,122,58,0.1); color: var(--secondary); }
+
+  ol.steps { list-style: none; counter-reset: step; margin: 12px 0 8px; }
+  ol.steps > li { counter-increment: step; position: relative; padding: 0 0 16px 46px; }
+  ol.steps > li::before { content: counter(step); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; background: var(--accent); color: #fff; font-weight: 700; font-size: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  ol.steps > li:not(:last-child)::after { content: ''; position: absolute; left: 14px; top: 32px; bottom: 2px; width: 2px; background: var(--accent-border); }
+  ol.steps strong { color: var(--ink); }
+
+  .tag { display: inline-block; font-family: 'Courier New', monospace; font-size: 13px; background: var(--accent-soft); color: var(--accent); padding: 1px 7px; border-radius: 4px; }
+  .crumb { font-weight: 700; color: var(--ink); }
+
+  .note { background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: 12px; padding: 16px 18px; margin: 18px 0; font-size: 14px; }
+  .note .label { font-weight: 700; color: var(--accent); display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  .warn { background: rgba(224,122,58,0.08); border-color: rgba(224,122,58,0.25); }
+  .warn .label { color: var(--secondary); }
+
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  th { text-align: left; background: var(--accent); color: #fff; padding: 9px 12px; font-size: 12px; letter-spacing: 0.3px; text-transform: uppercase; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+
+  .status { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 50px; text-transform: capitalize; }
+  .s-sub { background: rgba(133,183,235,0.15); color: #4a90d9; }
+  .s-app { background: var(--accent-soft); color: var(--accent); }
+  .s-rej { background: rgba(224,90,90,0.12); color: #E05A5A; }
+  .s-paid { background: rgba(93,202,165,0.15); color: #2f9e7a; }
+
+  .footer { padding: 26px 50px; background: linear-gradient(180deg, #f0efe8 0%, #e8e7e0 100%); text-align: center; color: var(--ink-muted); font-size: 12px; border-top: 3px solid var(--accent); }
+  @media print { body { background: #fff; } .page { box-shadow: none; max-width: none; margin: 0; border-radius: 0; } h2, .note, ol.steps > li { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <div class="brand"><span class="in">In</span><span class="track">Track</span><span class="log">Log</span></div>
+    <div class="eyebrow">User Guide</div>
+    <h1>Reconcile &amp; get <span class="accent">reimbursed</span>.</h1>
+    <p>How to classify your trips, check that your mileage and spend line up, and claim back your business travel — and, for team admins, how to approve and pay those claims.</p>
+  </div>
+
+  <div class="content">
+
+    <h2>The idea in one minute</h2>
+    <p class="lead">Not every kilometre you drive is for work. To claim travel back from an employer (or for SARS), you separate <strong>business</strong> driving from <strong>personal</strong>. InTrackLog now lets you do exactly that, then turns your business kilometres into a reimbursement claim you can send to your team for approval.</p>
+    <table>
+      <tr><th>Term</th><th>What it means</th></tr>
+      <tr><td><strong>Classify</strong></td><td>Tag each trip as Business or Personal. Only business trips can be claimed.</td></tr>
+      <tr><td><strong>Reconcile</strong></td><td>A quick check that your trips and fuel/expenses agree (and that nothing's unclassified).</td></tr>
+      <tr><td><strong>Reimbursable</strong></td><td>Your business kilometres × the per-km rate = the rand amount you can claim.</td></tr>
+      <tr><td><strong>Claim</strong></td><td>A reimbursement request you submit to a team for a given month.</td></tr>
+      <tr><td><strong>Team</strong></td><td>Your employer/workplace in the app. Admins of the team approve and pay claims.</td></tr>
+    </table>
+    <div class="note"><span class="label">Where to find it</span> Everything lives under the <span class="crumb">Reports</span> tile on your dashboard. Tap it, then switch between the <span class="tag">Overview</span> and <span class="tag">Reconcile</span> tabs at the top. Use the <strong>‹ ›</strong> arrows to pick the month.</div>
+
+    <h2><span class="pill driver">For drivers</span> &nbsp;Classify &amp; claim</h2>
+
+    <h3>Step A — Classify your trips</h3>
+    <ol class="steps">
+      <li>Open <span class="crumb">Reports → Reconcile</span> and choose the month with the <strong>‹ ›</strong> arrows.</li>
+      <li>Find the <strong>Classify trips</strong> list — it shows every trip not yet tagged, with its date, distance and route.</li>
+      <li>Tap <strong>Business</strong> or <strong>Personal</strong> on each one. It saves instantly and drops off the list.</li>
+      <li>When the list is empty, every trip for that month is classified. ✅</li>
+    </ol>
+    <div class="note"><span class="label">Tip</span> Do this little and often — a quick swipe through after a day's driving keeps month-end painless.</div>
+
+    <h3>Step B — Check it reconciles</h3>
+    <p>Still on the Reconcile tab, the cards and <strong>Things to check</strong> list give you a health check for the month:</p>
+    <table>
+      <tr><th>You'll see</th><th>What it tells you</th></tr>
+      <tr><td>Business km · Reimbursable</td><td>Your claimable distance and what it's worth in rand.</td></tr>
+      <tr><td>Fuel / km · All-in / km</td><td>Your running cost — handy for spotting an odd month.</td></tr>
+      <tr><td>Things to check</td><td>Flags like "fuel purchase with no trip within 3 days" or "trips but no fuel logged".</td></tr>
+    </table>
+
+    <h3>Step C — Submit your claim</h3>
+    <ol class="steps">
+      <li>In the <strong>Submit for reimbursement</strong> section, each team you belong to shows your business km × rate = the amount.</li>
+      <li>Tap <strong>Submit</strong> next to the right team.</li>
+      <li>The button becomes a status badge so you always know where your claim stands:
+        <div style="margin-top:8px"><span class="status s-sub">Submitted</span> <span class="status s-app">Approved</span> <span class="status s-rej">Rejected</span> <span class="status s-paid">Paid</span></div>
+      </li>
+    </ol>
+    <div class="note warn"><span class="label">Before you can submit</span> You need to (1) classify at least one <strong>business</strong> trip that month, and (2) belong to a <strong>team</strong>. No team yet? Create one under <span class="crumb">Teams</span> — you become its admin automatically.</div>
+
+    <h2><span class="pill admin">For team admins</span> &nbsp;Approve &amp; pay</h2>
+    <p>If you own a team, or you're an admin member, you review what your drivers submit.</p>
+    <ol class="steps">
+      <li>Go to <span class="crumb">Dashboard → Teams</span> and select your team.</li>
+      <li>Open the <strong>Claims</strong> tab. A number next to it — e.g. <em>Claims (2)</em> — is how many are waiting on you.</li>
+      <li>Each claim shows the driver, the month, the kilometres and the amount.</li>
+      <li>Tap <strong>Approve</strong> or <strong>Reject</strong>. Approved claims then show a <strong>Mark paid</strong> button.</li>
+      <li>Once you've paid the driver, tap <strong>Mark paid</strong> to close it off.</li>
+    </ol>
+    <table>
+      <tr><th>Status</th><th>Meaning</th></tr>
+      <tr><td><span class="status s-sub">Submitted</span></td><td>Waiting for an admin to review.</td></tr>
+      <tr><td><span class="status s-app">Approved</span></td><td>Accepted — now awaiting payment.</td></tr>
+      <tr><td><span class="status s-rej">Rejected</span></td><td>Declined. The driver sees this and can fix &amp; resubmit.</td></tr>
+      <tr><td><span class="status s-paid">Paid</span></td><td>Reimbursed and closed.</td></tr>
+    </table>
+
+    <h2>How the amount is worked out</h2>
+    <p>Reimbursable amount = <strong>business kilometres × the per-km rate</strong>. The rate comes from the team: if the team has a <strong>custom rate</strong>, that's used; otherwise the standard rate (R4.64/km) applies. The amount is locked in at the moment you submit, so an approved claim never changes later even if you log more trips.</p>
+
+    <h2>Frequently asked</h2>
+    <h3>A trip isn't in my Classify list — why?</h3>
+    <p>Only entries with a distance count as trips. Also check you're on the right <strong>month</strong>. Trips you've already classified won't reappear (they've done their job).</p>
+    <h3>Can I change a classification later?</h3>
+    <p>Yes — it only leaves the Classify list once tagged, but you can re-tag from your trip records at any time before you submit.</p>
+    <h3>I'm a solo owner — can I test the whole flow myself?</h3>
+    <p>Yes. Create a team (you're the admin), classify trips, submit a claim as yourself, then approve and mark it paid from the team's Claims tab.</p>
+    <h3>Does this import my bank or fuel-card statement?</h3>
+    <p>Not yet — that's a planned next step. For now, expenses are the ones you've entered in the app, and the Reconcile checks compare them against your logged trips.</p>
+
+  </div>
+
+  <div class="footer">
+    <div style="font-family: var(--serif); font-size: 18px; color: var(--ink); margin-bottom: 4px;"><span style="color:#6a6a76;font-weight:700;">In</span><span style="color:#52AD3B;font-weight:700;">Track</span><span style="color:#E07A3A;font-style:italic;">Log</span></div>
+    <p>Drive forward. Track smart.</p>
+  </div>
+
+</div>
+</body>
+</html>

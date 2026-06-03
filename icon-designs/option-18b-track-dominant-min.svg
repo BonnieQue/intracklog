@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="220" fill="#0a0a0c"/>
+
+  <!-- Bold dominant track — single thick stroke -->
+  <path d="M 100 880 Q 320 800 460 660 Q 600 520 740 460 Q 880 400 920 280"
+        stroke="#2D9F6F" stroke-width="56" stroke-linecap="round" fill="none"/>
+
+  <!-- Start dot — bigger -->
+  <circle cx="100" cy="880" r="36" fill="#2D9F6F"/>
+
+  <!-- Pin (outlined) sitting on track — smaller, more subtle -->
+  <g transform="translate(440 360)">
+    <path d="M 130 0
+             C 60 0 4 56 4 128
+             C 4 198 110 296 130 320
+             C 150 296 256 198 256 128
+             C 256 56 200 0 130 0 Z"
+          fill="#0a0a0c" stroke="#2D9F6F" stroke-width="20" stroke-linejoin="round"/>
+
+    <!-- Modern minimalist car silhouette inside -->
+    <g transform="translate(50 80)">
+      <!-- Sleek body (single colour, curved roofline) -->
+      <path d="M 4 56
+               C 4 46 12 38 24 38
+               Q 46 18 80 14
+               L 110 12
+               Q 142 12 158 20
+               L 180 30
+               Q 196 32 196 44
+               L 196 56
+               L 4 56 Z"
+            fill="#2D9F6F"/>
+      <!-- Window cutout (background dark shows through) -->
+      <path d="M 46 38
+               Q 60 22 80 20
+               L 110 18
+               Q 134 18 148 28
+               L 162 38
+               L 46 38 Z"
+            fill="#0a0a0c"/>
+      <!-- Door split line -->
+      <line x1="100" y1="22" x2="102" y2="38" stroke="#0a0a0c" stroke-width="1.5" opacity="0.6"/>
+      <!-- Wheels -->
+      <circle cx="44" cy="56" r="14" fill="#0a0a0c"/>
+      <circle cx="44" cy="56" r="5" fill="#2D9F6F"/>
+      <circle cx="156" cy="56" r="14" fill="#0a0a0c"/>
+      <circle cx="156" cy="56" r="5" fill="#2D9F6F"/>
+    </g>
+  </g>
+</svg>

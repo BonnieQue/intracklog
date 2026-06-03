@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg11b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2D9F6F"/>
+      <stop offset="1" stop-color="#238a5d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg11b)"/>
+
+  <!-- Map pin shape (dark) -->
+  <path d="M 512 140
+           C 332 140 200 272 200 452
+           C 200 640 488 900 512 920
+           C 536 900 824 640 824 452
+           C 824 272 692 140 512 140 Z"
+        fill="#0a0a0c"/>
+
+  <!-- Inner circle for the car -->
+  <circle cx="512" cy="452" r="180" fill="#f0efe8"/>
+
+  <!-- Car (side view, simplified) -->
+  <!-- Body -->
+  <path d="M 360 484
+           L 392 432
+           Q 400 416 420 416
+           L 540 416
+           Q 556 416 568 428
+           L 612 470
+           L 660 478
+           Q 676 480 676 496
+           L 676 508
+           Q 676 520 664 520
+           L 360 520
+           Q 348 520 348 508
+           L 348 496
+           Q 348 484 360 484 Z"
+        fill="#2D9F6F"/>
+
+  <!-- Window -->
+  <path d="M 416 432
+           Q 420 426 432 426
+           L 528 426
+           Q 540 426 548 434
+           L 580 470
+           L 412 470 Z"
+        fill="#85B7EB"/>
+
+  <!-- Window divider (door pillar) -->
+  <line x1="488" y1="430" x2="494" y2="468" stroke="#2D9F6F" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Headlight -->
+  <rect x="652" y="488" width="14" height="8" rx="2" fill="#E07A3A"/>
+  <!-- Tail light -->
+  <rect x="358" y="488" width="14" height="8" rx="2" fill="#E07A3A" opacity="0.7"/>
+
+  <!-- Front wheel -->
+  <circle cx="608" cy="520" r="32" fill="#0a0a0c"/>
+  <circle cx="608" cy="520" r="14" fill="#1a1a22"/>
+  <circle cx="608" cy="520" r="5" fill="#2D9F6F"/>
+
+  <!-- Rear wheel -->
+  <circle cx="416" cy="520" r="32" fill="#0a0a0c"/>
+  <circle cx="416" cy="520" r="14" fill="#1a1a22"/>
+  <circle cx="416" cy="520" r="5" fill="#2D9F6F"/>
+
+  <!-- Pin shadow -->
+  <ellipse cx="512" cy="930" rx="120" ry="14" fill="#0a0a0c" opacity="0.3"/>
+</svg>

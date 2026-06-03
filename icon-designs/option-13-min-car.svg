@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="220" fill="#f0efe8"/>
+
+  <!-- Minimalist car silhouette (side profile) -->
+  <path d="M 240 580
+           L 320 460
+           Q 336 440 364 440
+           L 600 440
+           Q 624 440 640 456
+           L 720 540
+           L 780 552
+           Q 800 556 800 576
+           L 800 600
+           Q 800 612 788 612
+           L 240 612
+           Q 228 612 228 600
+           L 228 580 Z"
+        fill="#0a0a0c"/>
+
+  <!-- Window cutout -->
+  <path d="M 360 460
+           L 412 460
+           L 470 530
+           L 360 530 Z"
+        fill="#f0efe8"/>
+  <path d="M 432 460
+           L 596 460
+           Q 612 460 624 472
+           L 668 530
+           L 488 530 Z"
+        fill="#f0efe8"/>
+
+  <!-- Wheels -->
+  <circle cx="354" cy="612" r="58" fill="#0a0a0c"/>
+  <circle cx="354" cy="612" r="22" fill="#f0efe8"/>
+  <circle cx="688" cy="612" r="58" fill="#0a0a0c"/>
+  <circle cx="688" cy="612" r="22" fill="#f0efe8"/>
+</svg>

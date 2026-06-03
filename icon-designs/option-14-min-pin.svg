@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="220" fill="#2D9F6F"/>
+
+  <!-- Pure minimalist map pin -->
+  <path d="M 512 200
+           C 380 200 280 300 280 432
+           C 280 560 460 760 512 820
+           C 564 760 744 560 744 432
+           C 744 300 644 200 512 200 Z"
+        fill="#f0efe8"/>
+
+  <!-- Inner hollow circle -->
+  <circle cx="512" cy="430" r="78" fill="#2D9F6F"/>
+</svg>

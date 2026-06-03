@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="220" fill="#0a0a0c"/>
+
+  <!-- Single thin track curve from bottom-left up to the pin -->
+  <path d="M 160 880 Q 320 820 440 760 Q 540 720 560 700"
+        stroke="#2D9F6F" stroke-width="20" stroke-linecap="round" fill="none"/>
+
+  <!-- Tiny start dot -->
+  <circle cx="160" cy="880" r="18" fill="#2D9F6F"/>
+
+  <!-- Pin (outlined, minimalist) -->
+  <path d="M 560 220
+           C 432 220 332 320 332 448
+           C 332 568 528 720 560 752
+           C 592 720 788 568 788 448
+           C 788 320 688 220 560 220 Z"
+        fill="none" stroke="#2D9F6F" stroke-width="32" stroke-linejoin="round"/>
+
+  <!-- Tiny car inside the pin (simple silhouette) -->
+  <g transform="translate(465 395)">
+    <!-- Body -->
+    <path d="M 16 80
+             L 40 44
+             Q 46 36 56 36
+             L 134 36
+             Q 142 36 148 42
+             L 174 78
+             L 184 84
+             L 184 100
+             L 6 100
+             L 6 84 Z"
+          fill="#2D9F6F"/>
+    <!-- Window cutout (background dark shows through) -->
+    <path d="M 56 50
+             L 130 50
+             Q 138 50 142 56
+             L 160 78
+             L 44 78 Z"
+          fill="#0a0a0c"/>
+    <!-- Wheels -->
+    <circle cx="48" cy="100" r="16" fill="#0a0a0c"/>
+    <circle cx="48" cy="100" r="6" fill="#2D9F6F"/>
+    <circle cx="146" cy="100" r="16" fill="#0a0a0c"/>
+    <circle cx="146" cy="100" r="6" fill="#2D9F6F"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131318"/>
+      <stop offset="1" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg5)"/>
+
+  <!-- Outer chrome ring -->
+  <circle cx="512" cy="512" r="380" fill="none" stroke="#2D9F6F" stroke-width="32"/>
+  <circle cx="512" cy="512" r="340" fill="#0a0a0c" stroke="#2D9F6F" stroke-width="6" opacity="0.4"/>
+
+  <!-- Odometer digit boxes -->
+  <g>
+    <rect x="320" y="450" width="76" height="124" rx="12" fill="#1a1a22" stroke="#2D9F6F" stroke-width="3" opacity="0.6"/>
+    <rect x="406" y="450" width="76" height="124" rx="12" fill="#1a1a22" stroke="#2D9F6F" stroke-width="3" opacity="0.6"/>
+    <rect x="492" y="450" width="76" height="124" rx="12" fill="#1a1a22" stroke="#2D9F6F" stroke-width="3" opacity="0.6"/>
+    <rect x="578" y="450" width="76" height="124" rx="12" fill="#1a1a22" stroke="#2D9F6F" stroke-width="3" opacity="0.6"/>
+    <!-- Last digit highlighted -->
+    <rect x="664" y="450" width="76" height="124" rx="12" fill="#1a1a22" stroke="#E07A3A" stroke-width="6"/>
+  </g>
+
+  <!-- Digits "01234" -->
+  <g fill="#f0efe8" font-family="DMSans-Bold, Arial Black, sans-serif" font-size="92" font-weight="900" text-anchor="middle">
+    <text x="358" y="538">0</text>
+    <text x="444" y="538">1</text>
+    <text x="530" y="538">2</text>
+    <text x="616" y="538">3</text>
+    <text x="702" y="538" fill="#E07A3A">4</text>
+  </g>
+
+  <!-- "KM" label -->
+  <text x="512" y="660" fill="#8a8a96" font-family="DMSans-Bold, Arial Black, sans-serif" font-size="48" font-weight="900" text-anchor="middle" letter-spacing="8">KM</text>
+</svg>

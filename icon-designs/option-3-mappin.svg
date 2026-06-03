@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2D9F6F"/>
+      <stop offset="1" stop-color="#238a5d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg3)"/>
+
+  <!-- Map pin shape -->
+  <path d="M 512 220
+           C 380 220 280 320 280 452
+           C 280 580 460 740 512 800
+           C 564 740 744 580 744 452
+           C 744 320 644 220 512 220 Z"
+        fill="#0a0a0c"/>
+
+  <!-- Inner hollow -->
+  <circle cx="512" cy="450" r="120" fill="#2D9F6F"/>
+
+  <!-- Checkmark inside -->
+  <path d="M 458 450 L 500 492 L 568 410"
+        stroke="#0a0a0c" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Subtle road line at bottom -->
+  <line x1="280" y1="880" x2="744" y2="880" stroke="#0a0a0c" stroke-width="20" stroke-linecap="round" stroke-dasharray="40 30"/>
+</svg>

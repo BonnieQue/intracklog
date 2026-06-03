@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="220" fill="#0a0a0c"/>
+
+  <!-- The track/route — runs along the bottom up to under the pin -->
+  <path d="M 120 880 Q 280 820 400 800 Q 520 780 560 740"
+        stroke="#2D9F6F" stroke-width="32" stroke-linecap="round" fill="none" opacity="0.35"/>
+
+  <!-- Dashed track segments on top for "road" feel -->
+  <path d="M 120 880 Q 280 820 400 800 Q 520 780 560 740"
+        stroke="#E07A3A" stroke-width="10" stroke-linecap="round" fill="none"
+        stroke-dasharray="40 30"/>
+
+  <!-- Start marker -->
+  <circle cx="120" cy="880" r="22" fill="#2D9F6F"/>
+
+  <!-- Pin with car inside — sits at the end of the track -->
+  <path d="M 560 200
+           C 432 200 332 300 332 428
+           C 332 552 528 720 560 752
+           C 592 720 788 552 788 428
+           C 788 300 688 200 560 200 Z"
+        fill="#2D9F6F"/>
+
+  <!-- Inner circle (dark) for car -->
+  <circle cx="560" cy="420" r="148" fill="#0a0a0c"/>
+
+  <!-- Car silhouette inside (side profile) -->
+  <g transform="translate(440 360)">
+    <!-- Body -->
+    <path d="M 20 96
+             L 50 50
+             Q 56 40 70 40
+             L 174 40
+             Q 184 40 192 48
+             L 222 88
+             L 232 96
+             L 232 116
+             L 8 116
+             L 8 96 Z"
+          fill="#f0efe8"/>
+    <!-- Window cutout -->
+    <path d="M 70 56
+             L 168 56
+             Q 176 56 182 62
+             L 204 92
+             L 56 92 Z"
+          fill="#0a0a0c"/>
+    <!-- Headlight -->
+    <rect x="216" y="100" width="12" height="6" rx="2" fill="#E07A3A"/>
+    <!-- Tail light -->
+    <rect x="14" y="100" width="12" height="6" rx="2" fill="#E07A3A" opacity="0.7"/>
+    <!-- Wheels -->
+    <circle cx="62" cy="118" r="22" fill="#f0efe8"/>
+    <circle cx="62" cy="118" r="9" fill="#0a0a0c"/>
+    <circle cx="184" cy="118" r="22" fill="#f0efe8"/>
+    <circle cx="184" cy="118" r="9" fill="#0a0a0c"/>
+  </g>
+
+  <!-- Tip of the pin meets the track gracefully -->
+  <circle cx="560" cy="752" r="14" fill="#2D9F6F"/>
+</svg>

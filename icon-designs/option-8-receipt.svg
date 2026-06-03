@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg8" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E07A3A"/>
+      <stop offset="1" stop-color="#c96a30"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg8)"/>
+
+  <!-- Receipt body with torn bottom -->
+  <path d="M 320 200
+           L 704 200
+           L 704 760
+           L 670 740 L 636 760 L 602 740 L 568 760 L 534 740
+           L 500 760 L 466 740 L 432 760 L 398 740 L 364 760
+           L 320 740 Z"
+        fill="#f0efe8"/>
+
+  <!-- Receipt content lines -->
+  <rect x="370" y="280" width="284" height="20" rx="10" fill="#2D9F6F"/>
+  <rect x="370" y="340" width="220" height="14" rx="7" fill="#0a0a0c" opacity="0.4"/>
+  <rect x="370" y="380" width="180" height="14" rx="7" fill="#0a0a0c" opacity="0.4"/>
+
+  <!-- Divider -->
+  <line x1="370" y1="430" x2="654" y2="430" stroke="#0a0a0c" stroke-width="2" opacity="0.2" stroke-dasharray="6 6"/>
+
+  <!-- Amount row -->
+  <rect x="370" y="460" width="120" height="14" rx="7" fill="#0a0a0c" opacity="0.6"/>
+  <rect x="540" y="455" width="114" height="22" rx="11" fill="#E07A3A"/>
+
+  <!-- Total row -->
+  <rect x="370" y="510" width="80" height="18" rx="9" fill="#0a0a0c"/>
+  <rect x="510" y="500" width="144" height="38" rx="10" fill="#2D9F6F"/>
+
+  <!-- Big checkmark over the receipt -->
+  <circle cx="640" cy="640" r="76" fill="#2D9F6F"/>
+  <path d="M 605 640 L 632 666 L 680 614" stroke="#f0efe8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

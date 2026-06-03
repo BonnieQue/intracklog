@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg11" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2D9F6F"/>
+      <stop offset="1" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg11)"/>
+
+  <!-- Map pin shape -->
+  <path d="M 512 160
+           C 348 160 224 284 224 448
+           C 224 624 480 880 512 920
+           C 544 880 800 624 800 448
+           C 800 284 676 160 512 160 Z"
+        fill="#f0efe8"/>
+
+  <!-- Inner circle (white background for car) -->
+  <circle cx="512" cy="448" r="180" fill="#0a0a0c"/>
+
+  <!-- Car body (front view, simple silhouette) -->
+  <!-- Lower body / chassis -->
+  <path d="M 388 510
+           L 412 472
+           Q 432 442 472 438
+           L 552 438
+           Q 592 442 612 472
+           L 636 510
+           L 636 540
+           Q 636 552 624 552
+           L 600 552
+           L 600 562
+           Q 600 572 588 572
+           L 568 572
+           Q 556 572 556 562
+           L 556 552
+           L 468 552
+           L 468 562
+           Q 468 572 456 572
+           L 436 572
+           Q 424 572 424 562
+           L 424 552
+           L 400 552
+           Q 388 552 388 540 Z"
+        fill="#2D9F6F"/>
+
+  <!-- Windshield / cabin (lighter green) -->
+  <path d="M 432 472
+           Q 444 444 470 442
+           L 554 442
+           Q 580 444 592 472
+           L 580 480
+           L 444 480 Z"
+        fill="#85B7EB" opacity="0.85"/>
+
+  <!-- Headlights -->
+  <circle cx="408" cy="510" r="8" fill="#E07A3A"/>
+  <circle cx="616" cy="510" r="8" fill="#E07A3A"/>
+
+  <!-- Wheels (visible at the bottom) -->
+  <circle cx="446" cy="552" r="14" fill="#0a0a0c"/>
+  <circle cx="446" cy="552" r="6" fill="#1a1a22"/>
+  <circle cx="578" cy="552" r="14" fill="#0a0a0c"/>
+  <circle cx="578" cy="552" r="6" fill="#1a1a22"/>
+
+  <!-- Small accent at top of cabin -->
+  <rect x="500" y="450" width="24" height="6" rx="2" fill="#2D9F6F" opacity="0.4"/>
+
+  <!-- Pin shadow on the ground -->
+  <ellipse cx="512" cy="930" rx="120" ry="14" fill="#0a0a0c" opacity="0.3"/>
+</svg>

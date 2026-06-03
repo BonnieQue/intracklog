@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>InTrackLog Icon Options</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px;
+    background: #0a0a0c; color: #f0efe8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  h1 { text-align: center; font-weight: 300; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .sub { text-align: center; opacity: 0.6; font-size: 14px; margin-bottom: 50px; }
+
+  .section-label {
+    grid-column: 1 / -1;
+    margin: 20px 0 -10px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #8a8a96;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #131318;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 28px;
+  }
+
+  .label { font-weight: 600; margin-bottom: 8px; font-size: 16px; color: #2D9F6F; }
+  .desc { opacity: 0.65; font-size: 12px; line-height: 1.5; margin-bottom: 24px; min-height: 54px; }
+
+  .icon-row {
+    display: flex; gap: 20px; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .icon-large {
+    width: 180px; height: 180px;
+    border-radius: 36px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+  .icon-medium {
+    width: 80px; height: 80px;
+    border-radius: 18px; overflow: hidden;
+  }
+  .icon-small {
+    width: 48px; height: 48px;
+    border-radius: 11px; overflow: hidden;
+  }
+
+  .size-row {
+    display: flex; gap: 10px; align-items: center;
+    justify-content: center;
+    opacity: 0.7; font-size: 11px;
+  }
+
+  .size-row > div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+</style>
+</head>
+<body>
+  <h1>InTrackLog · App Icon Options</h1>
+  <p class="sub">10 concepts. Each shown at large (Play Store), medium (home screen), and small (notification tray).</p>
+
+  <div class="grid">
+
+    <div class="section-label">Batch 1 · Direct mileage / journey themes</div>
+
+    <div class="card">
+      <div class="label">Option 1 — Route Path</div>
+      <div class="desc">Bold green journey curve ending in a glowing destination marker. Most aligned with your existing logo.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-1-route.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-1-route.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-1-route.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 2 — Speedometer</div>
+      <div class="desc">Dashboard speedometer with a needle. Communicates "vehicle dashboard" instantly.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-2-speedometer.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-2-speedometer.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-2-speedometer.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 3 — Map Pin</div>
+      <div class="desc">Solid green tile with a map pin holding a checkmark. High contrast = excellent at small sizes.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-3-mappin.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-3-mappin.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-3-mappin.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 4 — "iT" Monogram</div>
+      <div class="desc">Stylised "iT" letters on a green-to-orange gradient. Letter-based icons stand out in app drawers.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-4-monogram.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-4-monogram.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-4-monogram.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 5 — Odometer</div>
+      <div class="desc">Mechanical odometer reels showing "01234". Distinctly mileage-tracking. Already echoed in your app.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-5-odometer.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-5-odometer.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-5-odometer.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Batch 2 · Broader perspective</div>
+
+    <div class="card">
+      <div class="label">Option 6 — Mountain Path</div>
+      <div class="desc">Geometric mountains with a winding road and rising sun. Aspirational, journey-focused, evokes travel and progress.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-6-mountain.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-6-mountain.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-6-mountain.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 7 — Compass</div>
+      <div class="desc">Detailed compass rose with cardinal markers. Premium feel, suggests precision navigation. Strong at large sizes.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-7-compass.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-7-compass.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-7-compass.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 8 — Receipt</div>
+      <div class="desc">Receipt with totals and a green checkmark badge. Emphasises the expense-tracking and SARS-claim side of the app.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-8-receipt.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-8-receipt.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-8-receipt.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 9 — Stopwatch</div>
+      <div class="desc">Stopwatch with progress arc and "KM" label. Combines time and distance — emphasises trip tracking.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-9-stopwatch.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-9-stopwatch.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-9-stopwatch.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 10 — Pin + Route</div>
+      <div class="desc">Light "map view" style with start point, dotted route, end pin, and a "42 km" distance badge. Most literal/illustrative.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-10-pinroute.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-10-pinroute.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-10-pinroute.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Batch 3 · Pin + Car combo</div>
+
+    <div class="card">
+      <div class="label">Option 11 — Pin + Car (Front)</div>
+      <div class="desc">Map pin with a front-facing car silhouette inside. Combines location tracking + vehicle identity in one symbol.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-11-pincar.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-11-pincar.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-11-pincar.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 11b — Pin + Car (Side)</div>
+      <div class="desc">Same concept but with a side-profile car. Side view reads more clearly at small sizes than the front view.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-11b-pincar-side.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-11b-pincar-side.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-11b-pincar-side.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Batch 4 · Minimalist</div>
+
+    <div class="card">
+      <div class="label">Option 12 — Minimal Route</div>
+      <div class="desc">A single thin curve from a small dot to a larger one. Pure motion. Reads instantly at any size.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-12-min-route.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-12-min-route.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-12-min-route.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 13 — Minimal Car</div>
+      <div class="desc">Light background with a clean black car silhouette. Confident, simple. Premium tech-app feel.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-13-min-car.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-13-min-car.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-13-min-car.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 14 — Minimal Pin</div>
+      <div class="desc">Solid green tile with a single white pin shape. Looks like Google Maps. Hard to misread.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-14-min-pin.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-14-min-pin.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-14-min-pin.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 15 — Minimal "iT"</div>
+      <div class="desc">Bold "iT" letter mark with green and orange. Stripped-down version of #4 — pure typography on solid black.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-15-min-iT.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-15-min-iT.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-15-min-iT.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 16 — Minimal Pin + Car</div>
+      <div class="desc">Outlined pin with a tiny solid car inside. Lightest version of the pin+car combo. Modern line-art style.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-16-min-pincar.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-16-min-pincar.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-16-min-pincar.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Batch 5 · Track + Pin + Car (combined story)</div>
+
+    <div class="card">
+      <div class="label">Option 17 — Track + Pin + Car</div>
+      <div class="desc">Pin with a car inside, sitting at the end of a tracked route. The full story in one icon: car, journey, destination.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-17-track-pincar.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-17-track-pincar.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-17-track-pincar.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 17b — Track + Pin + Car (Minimal)</div>
+      <div class="desc">Same composition but stripped to outlines and a single solid car. Cleanest version. Best for modern brand aesthetic.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-17b-track-pincar-min.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-17b-track-pincar-min.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-17b-track-pincar-min.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Batch 6 · Bold track + smaller pin + modern car</div>
+
+    <div class="card">
+      <div class="label">Option 18 — Track-dominant + Modern car</div>
+      <div class="desc">Wide bold green track with dashed centre line stretches across the icon. Smaller orange pin sits on the track. Sleek sedan silhouette with windshield + headlights inside the pin.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-18-track-dominant.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-18-track-dominant.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-18-track-dominant.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Option 18b — Track-dominant + Modern car (Minimal)</div>
+      <div class="desc">Same idea, minimalist. Bold green track is the hero. Outlined pin holds a sleek modern sedan silhouette. Best balance of clarity and brand.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-18b-track-dominant-min.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-18b-track-dominant-min.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-18b-track-dominant-min.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Batch 7 · Illustrated style (reference-inspired)</div>
+
+    <div class="card">
+      <div class="label">Option 19 — Illustrated outline</div>
+      <div class="desc">Clean outlined illustration in the style of your reference image. Curving perspective road, outlined pin holding a front-view car with headlights and grille. Beige background, orange pin/car, green road.</div>
+      <div class="icon-row"><div class="icon-large"><img src="option-19-illustrated.svg" width="180" height="180"></div></div>
+      <div class="size-row">
+        <div><div class="icon-medium"><img src="option-19-illustrated.svg" width="80" height="80"></div><div>Home</div></div>
+        <div><div class="icon-small"><img src="option-19-illustrated.svg" width="48" height="48"></div><div>Notif</div></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#85B7EB"/>
+      <stop offset="0.55" stop-color="#2D9F6F"/>
+      <stop offset="1" stop-color="#0a0a0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg6)"/>
+
+  <!-- Sun -->
+  <circle cx="760" cy="280" r="80" fill="#E07A3A" opacity="0.85"/>
+
+  <!-- Back mountains -->
+  <path d="M 80 720 L 320 380 L 540 620 L 760 360 L 944 720 Z" fill="#1a1a22" opacity="0.6"/>
+
+  <!-- Front mountains -->
+  <path d="M 80 760 L 280 480 L 460 700 L 660 460 L 944 760 Z" fill="#0a0a0c"/>
+
+  <!-- Winding road -->
+  <path d="M 200 920 Q 380 880 460 800 Q 540 720 600 700 Q 660 680 700 620"
+        stroke="#f0efe8" stroke-width="34" stroke-linecap="round" fill="none" stroke-dasharray="6 0"/>
+  <path d="M 200 920 Q 380 880 460 800 Q 540 720 600 700 Q 660 680 700 620"
+        stroke="#E07A3A" stroke-width="14" stroke-linecap="round" fill="none" stroke-dasharray="40 30" stroke-dashoffset="20"/>
+</svg>
